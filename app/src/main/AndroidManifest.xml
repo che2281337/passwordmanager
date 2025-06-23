@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.passwordmanager">
+
+    <!-- Разрешения не требуются для локальной работы с SQLite, но добавим для безопасности -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <application
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Менеджер паролей"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Passwordmanager"
+        tools:targetApi="31">
+
+        <!-- Экран авторизации как начальный -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Авторизация">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Экран регистрации -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="Регистрация" />
+
+        <activity
+            android:name=".PasswordDetailActivity"
+            android:exported="false"
+            android:label="О пароле" />
+
+        <!-- Главный экран со списком паролей -->
+        <activity
+            android:name=".PasswordListActivity"
+            android:exported="false"
+            android:label="Список паролей" />
+
+        <!-- Экран добавления нового пароля -->
+        <activity
+            android:name=".AddPasswordActivity"
+            android:exported="false"
+            android:label="Добавить пароль" />
+
+    </application>
+
+</manifest>
